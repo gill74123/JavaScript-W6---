@@ -1,0 +1,233 @@
+---
+title: W6 - 旅遊套票
+layout: ./app/layout.ejs
+engine: ejs
+current: index
+---
+
+<!-- 新增套票表單 -->
+<section class="my-9 mt-md-16 mb-md-15">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10 border border-light rounded-4 shadow-sm py-9 py-md-14">
+        <div class="row justify-content-center">
+          <div class="col-md-5">
+            <img src="./assets/images/undraw_Traveling_re_weve (1).png" class="mb-6 img-cover" alt="小圖示">
+            <img src="./assets/images/Let’s Travel !.png" alt="Logo" class="d-none d-md-block img-cover">
+          </div>
+          <div class="col-md-5">
+            <form action="" class="addTicket-form">
+              <h2 class="d-flex align-items-center fs-5 text-primary border-bottom border-3 border-primary pb-1 mb-10">
+                <span class="material-icons-outlined me-1">add_circle_outline</span>
+                新增旅遊套票
+              </h2>
+              <!-- 套票名稱 -->
+              <div class="row flex-md-row justify-content-between mb-8">
+                <div class="col-md-3 mb-3 mb-md -0 mb-3 mb-md -0">
+                  <label for="ticketName" class="text-primary fs-3 fw-medium">套票名稱</label>
+                </div>
+                <div class="col-md-9">
+                  <input type="text" id="ticketName" placeholder="請填寫套票名稱" class="form-control border-0 border-bottom border-primary rounded-0 w-100 px-4 py-3">
+                  <div class="mt-2">
+                    <p id="ticketName-message" class="d-flex align-items-center">
+                      <!-- <span class="material-icons-outlined text-danger me-2">error</span>
+                      <span class="text-danger">必填！</span> -->
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- 圖片網址 -->
+              <div class="row justify-content-between mb-8">
+                <div class="col-md-3 mb-3 mb-md -0">
+                  <label for="ticketImgUrl" class="text-primary fs-3 fw-medium">圖片網址</label>
+                </div>
+                <div class="col-md-9">
+                  <input type="text" id="ticketImgUrl" placeholder="請填寫圖片網址" class="form-control border-0 border-bottom border-primary rounded-0 w-100 px-4 py-3">
+                  <div class="mt-2">
+                    <p id="ticketImgUrl-message" class="d-flex align-items-center">
+                      <!-- <span class="material-icons-outlined text-danger me-2">error</span>
+                      <span class="text-danger">必填！</span> -->
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- 景點地區 -->
+              <div class="row justify-content-between mb-8">
+                <div class="col-md-3 mb-3 mb-md -0">
+                  <label for="ticketRegion" class="text-primary fs-3 fw-medium">景點地區</label>
+                </div>
+                <div class="col-md-9">
+                  <select class="form-select border-0 border-bottom border-primary rounded-0 px-4 py-3" id="ticketRegion">
+                    <option value="" disabled selected hidden>請選擇景點地區</option>
+                    <option value="台北">台北</option>
+                    <option value="台中">台中</option>
+                    <option value="高雄">高雄</option>
+                  </select>
+                  <div class="mt-2">
+                    <p id="ticketRegion-message" class="d-flex align-items-center">
+                      <!-- <span class="material-icons-outlined text-danger me-2">error</span>
+                      <span class="text-danger">必填！</span> -->
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- 套票金額 -->
+              <div class="row justify-content-between mb-8">
+                <div class="col-md-3 mb-3 mb-md -0">
+                  <label for="ticketPrice" class="text-primary fs-3 fw-medium">套票金額</label>
+                </div>
+                <div class="col-md-9">
+                  <input type="number" id="ticketPrice" placeholder="請填寫套票金額" class="form-control border-0 border-bottom border-primary rounded-0 w-100 px-4 py-3" min="0">
+                  <div class="mt-2">
+                    <p id="ticketPrice-message" class="d-flex align-items-center">
+                      <!-- <span class="material-icons-outlined text-danger me-2">error</span>
+                      <span class="text-danger">必填！</span> -->
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- 套票組數 -->
+              <div class="row justify-content-between mb-8">
+                <div class="col-md-3 mb-3 mb-md -0">
+                  <label for="ticketNum" class="text-primary fs-3 fw-medium">套票組數</label>
+                </div>
+                <div class="col-md-9">
+                  <input type="number" id="ticketNum" placeholder="請填寫套票組數" class="form-control border-0 border-bottom border-primary rounded-0 w-100 px-4 py-3" min="1">
+                  <div class="mt-2">
+                    <p id="ticketNum-message" class="d-flex align-items-center">
+                      <!-- <span class="material-icons-outlined text-danger me-2">error</span>
+                      <span class="text-danger">必填！</span> -->
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- 套票星級 -->
+              <div class="row justify-content-between mb-8">
+                <div class="col-md-3 mb-3 mb-md -0">
+                  <label for="ticketRate" class="text-primary fs-3 fw-medium">套票星級</label>
+                </div>
+                <div class="col-md-9">
+                  <input type="number" id="ticketRate" placeholder="請填寫套票星級" class="form-control border-0 border-bottom border-primary rounded-0 w-100 px-4 py-3" min="1" max="10">
+                  <div class="mt-2">
+                    <p id="ticketRate-message" class="d-flex align-items-center">
+                      <!-- <span class="material-icons-outlined text-danger me-2">error</span>
+                      <span class="text-danger">必填！</span> -->
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- 套票描述 -->
+              <div class="row justify-content-between mb-8">
+                <div class="col-md-3 mb-3 mb-md -0">
+                  <label for="ticketDescription" class="text-primary fs-3 fw-medium">套票描述</label>
+                </div>
+                <div class="col-md-9">
+                  <textarea name="套票描述" id="ticketDescription" class="form-control border-0 border-bottom border-primary rounded-0 px-4 py-3" placeholder="請填寫套票描述 (限100字)"></textarea>
+                  <div class="mt-2">
+                    <p id="ticketDescription-message" class="d-flex align-items-center">
+                      <!-- <span class="material-icons-outlined text-danger me-2">error</span>
+                      <span class="text-danger">必填！</span> -->
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- 新增按鈕 -->
+              <div class="row justify-content-center justify-content-md-end">
+                <div class="col-6">
+                  <input type="button" id="addTicketBtn" class="btn btn-primary py-3 w-100" value="新增套票">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 套票顯示列表 -->
+<section class="bg-light pt-13 pb-16">
+  <div class="container">
+    <!-- 搜群區 -->
+    <div class="row align-items-center mb-9 mb-md-12">
+      <div class="offset-md-1 col-md-3 mb-3 mb-md-0">
+        <select class="form-select px-4 py-3" id="regionSearch">
+          <option value="" disabled selected hidden>地區搜尋</option>
+          <option value="All">全部區域</option>
+          <option value="台南">台南</option>
+          <option value="台北">台北</option>
+          <option value="台中">台中</option>
+          <option value="高雄">高雄</option>
+        </select>
+      </div>
+      <div class="offset-4 offset-md-0 col-md-3">
+        <p class="text-dark" id="searchResult"></p>
+      </div>
+    </div>
+
+    <!-- 顯示區域 -->
+    <ul class="row gy-11" id="ticketCardArea">
+      <!-- <div class="col-md-6 col-lg-4">
+        <li class="shadow-sm border rounded-2">
+          <div class="ticketCard-img | position-relative">
+            <a href="#" class="d-block overflow-hidden">
+              <img src="https://i.imgur.com/4UHm8WX.png" class="img-cover w-100" alt="">
+            </a>
+            <div class="position-absolute start-0 top-m13 rounded-end d-inline-block text-white bg-secondary fs-4 py-3 px-6">高雄</div>
+            <div class="position-absolute start-0 bottom-m16 rounded-end d-inline-block text-white bg-primary py-1 px-3">9.2</div>
+          </div>
+          <div class="d-flex flex-column justify-content-between p-6">
+            <a href="#">
+              <h2 class="ticketCard-name | border-bottom border-success border-2 fw-medium fs-5 pb-1 mb-5">綠島自由行套裝行程</h2>
+            </a>
+            <p class="text-dark">嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <span class="material-icons-outlined text-primary me-1">error</span>
+                <p class="fw-medium text-primary">剩下最後 8 組</p>
+              </div>
+              <div class="d-flex align-items-center">
+                <span class="fw-medium text-primary me-1">TWD</span>
+                <p class="fw-medium fs-6 text-primary">$1280</p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <li class="shadow-sm border rounded-2">
+          <div class="ticketCard-img | position-relative">
+            <a href="#" class="d-block overflow-hidden">
+              <img src="https://i.imgur.com/H97Wgfn.png" class="img-cover w-100" alt="">
+            </a>
+            <div class="position-absolute start-0 top-m13 rounded-end d-inline-block text-white bg-secondary fs-4 py-3 px-6">高雄</div>
+            <div class="position-absolute start-0 bottom-m16 rounded-end d-inline-block text-white bg-primary py-1 px-3">9.2</div>
+          </div>
+          <div class="p-6">
+            <a href="#">
+              <h2 class="ticketCard-name | border-bottom border-success border-2 fw-medium fs-5 pb-1 mb-5">綠島自由行套裝行程</h2>
+            </a>
+            <p class="text-dark mb-7">嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <span class="material-icons-outlined text-primary me-1">error</span>
+                <p class="fw-medium text-primary">剩下最後 8 組</p>
+              </div>
+              <div class="d-flex align-items-center">
+                <span class="fw-medium text-primary me-1">TWD</span>
+                <p class="fw-medium fs-6 text-primary">$1280</p>
+              </div>
+            </div>
+          </div>
+        </li>
+      </div> -->
+    </ul>
+
+    <!-- 查無關鍵字 -->
+    <div class="cantFind-area | text-center d-none pt-9">
+      <h3 class="fw-bold fs-5 text-primary mb-12">查無此關鍵字資料</h3>
+      <img src="https://i.imgur.com/dZI8FJQ.png" alt="">
+    </div>
+  </div>
+</section>
